@@ -1,0 +1,76 @@
+.toggle {
+    background: #efefef;
+    display: inline-block;
+    border-radius: 30px;
+    padding: 5px 0;
+    position: relative;
+}
+
+label {
+    display: inline-block;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    width: 100px;
+    text-align: center;
+    z-index: 50;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.1s ease-in-out;
+    transition-delay: 0.15s;
+    font-size: 0.9rem;
+}
+label:nth-of-type(1){
+    width: 120px;
+}
+label:nth-of-type(3){
+    width: 80px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.selector {
+    position: absolute;
+    background: #3a9293;
+    height: 30px;
+    width: 105px;
+    z-index: 2;
+    top: 2px;
+    left: 3px;
+    border-radius: 30px;
+    transition: left 0.25s ease-in-out;
+}
+
+#restaurant:checked+label {
+    color: white;
+}
+
+#restaurant:checked~.selector {
+    left: 3px;
+    width: 110px;
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+}
+
+#industry:checked+label {
+    color: white;
+}
+
+#industry:checked~.selector {
+    left: 120px;
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+}
+
+#ngo:checked+label {
+    color: white;
+}
+
+#ngo:checked~.selector {
+    left: 225px;
+    width: 80px;
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+}

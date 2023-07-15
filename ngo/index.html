@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/null/potted-plant.png" />
+	<link rel="stylesheet" href="/assets/fonts/stylesheet.css" />
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/ngo/ngo.css" />
+	<link rel="stylesheet" href="/css/ngo/faqs.css" />
+	<link rel="stylesheet" href="/css/ngo/register.css" />
+	<link rel="stylesheet" href="/css/footer.css" />
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<script type="module" src="/js/ngo.js" defer></script>
+	<script type="module" src="/js/utils.js" defer></script>
+	<title>NGO</title>
+</head>
+
+<body>
+	<section id="navbar">
+		<div class="container">
+			<div class="logo"><a href="../"><span>Re</span>Satiate</a></div>
+		</div>
+	</section>
+	<section id="hero">
+		<div class="container-box">
+			<div class="hero_text">
+				Your <span>Support</span> Brings Food to Those in Need
+			</div>
+			<button class="restaurant-login-button"><a href="#register-restaurant"
+					id="restaurant-login-link">REGISTER</a></button>
+		</div>
+	</section>
+	<section id="form">
+		<div class="form_card" data-aos="flip-up" data-aos-offset="400">
+			<div class="form_text">
+				<h2 class="form_text_heading">About Us</h2>
+				<p class="form_text_details">
+					ReSatiate is a noble initiative aimed at reducing food waste while
+					simultaneously catering to the needs of the underprivileged. The page
+					lists out the restaurants that have signed up to donate their leftover
+					food and allows people to place requests for the same. The volunteers
+					of the NGO collect the leftover food from the restaurants and
+					distribute it among the needy people, ensuring that no good food goes
+					to waste. By facilitating the sharing of surplus food, the NGO page
+					serves as a platform that connects restaurants with people in need,
+					ultimately promoting a culture of social responsibility and community
+					welfare.
+				</p>
+			</div>
+			<div class="slider">
+				<img class="slider-imgBox" src="/assets/images/1.jpg" alt="" data-visible="true">
+				<img class="slider-imgBox" src="/assets/images/2.jpg" alt="" data-visible="false">
+				<img class="slider-imgBox" src="/assets/images/3.jpg" alt="" data-visible="false">
+			</div>
+		</div>
+	</section>
+
+
+	<div class="box-form" id="register-restaurant" data-aos="zoom-in-up" data-aos-offset="300">
+		<div class="left">
+			<div class="overlay">
+			</div>
+		</div>
+		<div class="right">
+			<h5>REGISTER</h5>
+			<form action="" id="register-form">
+				<div class="inputs">
+					<div class="input-1">
+						<input required type="text" placeholder="Name" name="Name">
+						<input required type="text" placeholder="Aadhaar Number" name="AadhaarNumber" type="text"
+							inputmode="numeric" pattern="[0-9]{0,12}" maxlength="12" minlength="12">
+					</div>
+					<div class="input-1">
+						<input type="text" placeholder="License Number(optional)" name="LicenseNumber"
+							inputmode="numeric" pattern="[0-9]{0,}">
+						<input required type="text" placeholder=" Country" name="Country">
+					</div>
+					<div class="input-1">
+						<input required type="text" placeholder="City" name="City">
+						<input required type="text" placeholder="Address" name="Address">
+					</div>
+					<div class="input-1">
+						<input required type="text" placeholder="NGO Name" name="NGOname">
+						<input required type="tel" placeholder="Phone Number" name="phnumber">
+					</div>
+				</div>
+				<br><br>
+				<div class="remember-me--forget-password">
+					<label>
+						<input type="checkbox" name="item" class="check-box-input" checked required />
+						<span class="text-checkbox">I hereby agree to all the terms and conditions that for any delay in
+							the notification from the restaurant, the portal will not be responsible for it.</span>
+						<br>
+						<a href="#">Already registered? Go to login page.</a>
+					</label>
+				</div>
+				<br>
+				<button>Register</button>
+			</form>
+		</div>
+	</div>
+
+
+
+
+	<section id="faqs">
+		<div class="faq">
+			<div class="container">
+				<h2>Frequently Asked Questions</h2>
+				<div class="accordion">
+					<div class="accordion-item">
+						<button id="accordion-button-1" aria-expanded="false">
+							<span class="accordion-title">What is the procedure ?</span><span class="icon"
+								aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+							<p>
+								Restaurants work on subscription model.They get notification every mid-night around 9pm
+								to check food availability. Once they respond you will be notified near your location to
+								pick up and deliver to the one in need.
+							</p>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<button id="accordion-button-2" aria-expanded="false">
+							<span class="accordion-title"><span>Why us?</span><span class="icon"
+									aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+							<p>
+								Because we not only limit your reach to one restaurant but to many, so that food wastage
+								is minimal.
+							</p>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<button id="accordion-button-3" aria-expanded="false">
+							<span class="accordion-title">What if the food is bad?</span><span class="icon"
+								aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+							<p>
+								The restaurants sign terms and conditions to pay consequences for it.
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<footer id="footer">
+		<div class="footer-top">
+			<div class="footer-container">
+				<div class="col-lg-3 mobile">
+					<div class="footer-info">
+						<h3>ReSatiate</h3>
+						<p>
+							Room No. 369, RHR hostel, Bhubaneswar <br />
+							<strong>Email:</strong>
+							<a href="mailto:resatiate.mailus@gmail.com">resatiate.mailus@gmail.com</a>
+						</p>
+						<div class="social-links mt-3">
+							<a href="#" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+							<a href="#" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+							<a href="#" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+							<a href="#" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 mobile footer-links">
+					<h3>Useful Links</h3>
+					<ul>
+						<li><a href="../">Home</a></li>
+						<li><a href="../restaurant/">Restaurant</a></li>
+						<li><a href="../industry/">Industry</a></li>
+						<li><a href="#">NGO </a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 mobile footer-newsletter">
+					<h3>Our Newsletter</h3>
+					<p>
+						Stay in the know with exclusive updates and content by subscribing
+						to our newsletter today!
+					</p>
+					<form action="" method="">
+						<input type="email" name="email" placeholder="Enter your email here" />
+						<button class="form-btn">Subscribe</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="copyright">
+				&copy; Copyright <strong><span>ReSatiate</span></strong>. All Rights Reserved
+			</div>
+		</div>
+	</footer>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<script src="https://kit.fontawesome.com/f334ead1fc.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
