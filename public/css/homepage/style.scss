@@ -15,7 +15,7 @@
 	min-height: 100vh;
 	top: 0;
 	left: 0;
-	background-image: url("https://images.unsplash.com/photo-1464454709131-ffd692591ee5");
+	background-image: url("https://images.unsplash.com/photo-1505935428862-770b6f24f629");
 	background-position: center center;
 	background-size: 110%;
 	background-repeat: no-repeat;
@@ -50,17 +50,17 @@
 	cursor: pointer;
 
 	// text-transform: uppercase;
-	&::before
-	{
-		content: "";
-		width: 36px;
-		height: 36px;
-		// background-image: url("../assets/images/logo.svg");
-		background-image: url("https://img.icons8.com/fluency/48/null/potted-plant.png");
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center center;
-	}
+	// &::before
+	// {
+	// 	content: "";
+	// 	width: 36px;
+	// 	height: 36px;
+	// 	// background-image: url("../assets/images/logo.svg");
+	// 	background-image: url("https://img.icons8.com/fluency/48/null/potted-plant.png");
+	// 	background-size: contain;
+	// 	background-repeat: no-repeat;
+	// 	background-position: center center;
+	// }
 
 	&:hover
 	{
