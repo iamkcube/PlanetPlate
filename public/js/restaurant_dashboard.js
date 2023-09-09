@@ -26,6 +26,8 @@ const firebaseApp = initializeApp(firebaseConfig);
 // data base for restaurant section ---------------------------------------------------
 const db = getFirestore();
 const colRef = collection(db, "Restaurant");
+var ngoCollection = db.collection("NGO");
+var industryCollection = db.collection("Industry");
 
 getDocs(colRef).then((snapshot) => {
 	console.log(snapshot.docs);
@@ -84,3 +86,4 @@ function changingContent(Name, Restaurantname) {
 	const Restname = document.querySelector("#Kalinga");
 	Restname.textContent = Restaurantname;
 }
+

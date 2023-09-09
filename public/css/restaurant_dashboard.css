@@ -67,6 +67,10 @@
   align-items: flex-end;
 }
 
+.app-header .tabs a{
+  margin: 10px;
+}
+
 @media (max-width: 1200px)
 {
   .app-header

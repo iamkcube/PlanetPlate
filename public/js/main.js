@@ -46,7 +46,6 @@ async function signUpWithEmail() {
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
-			console.log(user);
 			console.log(userCredential);
 		})
 		.catch((error) => {
