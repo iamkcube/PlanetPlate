@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Industry Dashboard</title>
+	<link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/null/potted-plant.png" />
+	<link rel="stylesheet" href="../../assets/fonts/stylesheet.css" />
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/industry_dashboard.css" />
+	<!-- <link rel="stylesheet" href="css/style.css" type="text/css"/> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+	<script src="https://kit.fontawesome.com/4af0a895d1.js" crossorigin="anonymous" defer></script>
+	<script type="module" src="../../js/industry_dashboard.js" defer></script>
+  <script type="module" crossorigin src="../../assets/modulepreload-polyfill-3cfb730f.js"></script>
+</head>
+
+<body>
+	<div id="mySidenav" class="sidenav">
+		<p class="logo"><a href="../../"><span>Re</span>Satiate</a></p>
+		<a href="#" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;Dashboard</a>
+		<!-- <a href="#"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;Customers</a>
+  <a href="#"class="icon-a"><i class="fa fa-list icons"></i> &nbsp;&nbsp;Projects</a> -->
+		<a href="#" class="icon-a" id="logOut"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff"></i>
+			&nbsp;Log Out</a>
+		<!-- <a href="#"class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Inventory</a>
+  <a href="#"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Accounts</a>
+  <a href="#"class="icon-a"><i class="fa fa-list-alt icons"></i> &nbsp;&nbsp;Tasks</a> -->
+	</div>
+	<div id="main">
+		<div class="head">
+			<div class="col-div-6">
+				<span style="font-size: 30px; cursor: pointer;" class="nav"><span class="hamburger">&#9776;</span>
+					Dashboard</span>
+
+				<span style="font-size: 30px; cursor: pointer;" class="nav2"><span class="hamburger">&#9776;</span>
+					Dashboard</span>
+			</div>
+
+			<div class="col-div-6">
+				<div class="profile">
+					<img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+						class="pro-img" />
+					<p><span id="Sarans">XYZ ORG </span><span id="Kalinga">INDUSTRY</span></p>
+				</div>
+				<!-- <div class="bell-notification" current-count="8">
+					<i class="fa-solid fa-bell fa-2xl"></i>
+				</div> -->
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="clearfix"></div>
+		<br />
+
+		<div class="col-div-3">
+			<div class="box">
+				<p class="box-text">90<br /><span>Restaurants</span></p>
+				<i class="fa-sharp fa-solid fa-utensils fa-2xl box_icon"></i>
+				<!-- <i class="fa-solid fa-utensils"></i> -->
+				<!-- <i class="fa fa-users box-icon"></i> -->
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box">
+				<p class="box-text">8<br /><span>Industries-tied-up</span></p>
+				<i class="fa-solid fa-industry fa-2xl box_icon"></i>
+				<!-- <i class="fa fa-list box-icon"></i> -->
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box">
+				<p class="box-text">90L<br /><span>Oil</span></p>
+				<i class="fa-solid fa-oil-well fa-2xl box_icon"></i>
+				<!-- <i class="fa fa-shopping-bag box-icon"></i> -->
+			</div>
+		</div>
+		<!-- <div class="col-div-3">
+		<div class="box">
+			<p>78<br/><span>Tasks</span></p>
+			<i class="fa fa-tasks box-icon"></i>
+		</div>
+	</div> -->
+		<div class="clearfix"></div>
+		<br /><br />
+		<div class="col-div-8">
+			<div class="box-8">
+				<div class="content-box">
+					<p>Past Orders</p>
+					<br />
+					<table>
+						<tr>
+							<th>Restaurants</th>
+							<th>Oil (in L)</th>
+							<!-- <th>Country</th> -->
+						</tr>
+						<tr>
+							<td>Le Shine</td>
+							<td>12L</td>
+							<!-- <td>Germany</td> -->
+						</tr>
+						<tr>
+							<td>Sarakali</td>
+							<td>20L</td>
+							<!-- <td>Mexico</td> -->
+						</tr>
+						<!-- <tr>
+							<td>Upre</td>
+							<td>25L</td>
+							 <td>Austria</td> -->
+						<!-- </tr>
+						<tr>
+							<td>Richards Cafe</td>
+							<td>10L</td> -->
+							<!-- <td>UK</td> -->
+						<!-- </tr> --> 
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-div-4">
+			<div class="box-4">
+				<div class="content-box">
+					<p>Total Oil Recycled</p>
+
+					<div class="circle-wrap">
+						<div class="circle">
+							<div class="mask full">
+								<div class="fill"></div>
+							</div>
+							<div class="mask half">
+								<div class="fill"></div>
+							</div>
+							<div class="inside-circle">98.72%</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+
+</body>
+
+</html>

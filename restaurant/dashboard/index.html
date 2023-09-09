@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/null/potted-plant.png" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../assets/fonts/stylesheet.css" />
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/restaurant_dashboard.css">
+	<title>Restaurant Dashboard</title>
+	<script type="module" src="../../js/rest_dashboard_utils.js" defer></script>
+	<script type="module" src="../../js/restaurant_dashboard.js" defer></script>
+  <script type="module" crossorigin src="../../assets/modulepreload-polyfill-3cfb730f.js"></script>
+</head>
+
+<body>
+	<div class="app">
+		<header class="app-header">
+			<p class="logo"><a href="../../"><span>Re</span>Satiate</a></p>
+			<div class="app-header-navigation">
+				<div class="tabs">
+					<a href="#">
+						Overview
+					</a>
+					<a href="#">
+						Payments
+					</a>
+					<a href="#">
+						New Orders
+					</a>
+					<a href="#">
+						Account
+					</a>
+					<a href="#">
+						Details
+					</a>
+				</div>
+			</div>
+			<div class="app-header-actions">
+				<button class="user-profile">
+					<span id="Sarans">Sarans Mishra</span>
+					<span>
+						<img
+							src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" />
+					</span>
+				</button>
+				<div class="app-header-actions-buttons">
+					<button class="icon-button large">
+						<i class="ph-magnifying-glass"></i>
+					</button>
+					<button class="icon-button large">
+						<i class="ph-bell"></i>
+					</button>
+				</div>
+			</div>
+			<div class="app-header-mobile">
+				<button class="icon-button large">
+					<i class="ph-list"></i>
+				</button>
+			</div>
+
+		</header>
+		<div class="app-body">
+			<div class="app-body-navigation">
+				<nav class="navigation">
+					<a href="#">
+						<i class="ph-browsers"></i>
+						<span>Dashboard</span>
+					</a>
+					<a href="#" id="logOut">
+						<i class="ph-sign-out"></i>
+						<span>LogOut</span>
+					</a>
+					<a href="#" class="login-trigger" data-target="#login" data-toggle="modal">
+						<i class="ph-list-plus"></i>
+						<span>Add Subscription</span>
+					</a>
+					<div id="login" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+
+							<div class="modal-content">
+								<div class="modal-body">
+									<button data-dismiss="modal" class="close">&times;</button>
+									<h4>SUBSCRIBE</h4>
+									<form>
+										<div class="parent-fillup">
+											<input type="checkbox" name="username" class="username form-control" />
+											<span class="text-checkbox">I hereby agree to all the terms and conditions
+												that I would respond to the message notification at 9pm regularly of one
+												month, if not my subscription may be cancelled.</span>
+										</div>
+										<input type="password" name="password" class="password form-control"
+											placeholder="password" />
+										<input class="btn login" type="submit" value="Subscribe" />
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+				<footer class="footer">
+					<h1>PlanetPlate<small>©</small></h1>
+					<div>
+						PlanetPlate ©<br />
+						All Rights Reserved 2021
+					</div>
+				</footer>
+			</div>
+			<div class="app-body-main-content">
+				<section class="service-section">
+					<h2>Welcome Back! <span id="Kalinga">Barista</span></h2>
+					<div class="service-section-header">
+						<div class="search-field">
+							<i class="ph-magnifying-glass"></i>
+							<input type="text" placeholder="Search">
+						</div>
+						<button class="flat-button">
+							Search
+						</button>
+					</div>
+					<div class="mobile-only">
+						<button class="flat-button">
+							Toggle search
+						</button>
+					</div>
+					<div class="tiles">
+						<article class="tile">
+							<div class="tile-header">
+								<i class="ph-pizza"></i>
+								<h3>
+									<span>Food</span>
+									<span>NGO</span>
+								</h3>
+							</div>
+							<a class="placeOrderButton">
+								<span>Place Order</span>
+								<span class="icon-button">
+									<i class="ph-shopping-cart"></i>
+								</span>
+							</a>
+						</article>
+						<article class="tile">
+							<div class="tile-header">
+								<i class="ph-fire-simple-light"></i>
+								<h3>
+									<span>Oil</span>
+									<span>Cosmetic <br> biogas industry</span>
+								</h3>
+							</div>
+							<a class="placeOrderButton">
+								<span>Place Order</span>
+								<span class="icon-button">
+									<i class="ph-shopping-cart"></i>
+								</span>
+							</a>
+						</article>
+						<article class="tile">
+							<div class="tile-header">
+								<i class="ph-trash"></i>
+								<h3>
+									<span>Peel Waste</span>
+									<span>Compost</span>
+								</h3>
+							</div>
+							<a class="placeOrderButton">
+								<span>Place Order</span>
+								<span class="icon-button">
+									<i class="ph-shopping-cart"></i>
+								</span>
+							</a>
+						</article>
+					</div>
+					<div class="service-section-footer">
+						<p>Place instant order for food and oil removal by organizations listed above by one click.</p>
+					</div>
+				</section>
+				<section class="transfer-section">
+					<div class="transfer-section-header">
+						<h2>Recent Transactions</h2>
+						<div class="filter-options">
+							<p></p>
+							<button class="icon-button">
+								<i class="ph-funnel"></i>
+							</button>
+							<button class="icon-button">
+								<i class="ph-plus"></i>
+							</button>
+						</div>
+					</div>
+					<div class="transfers">
+						<div class="transfer">
+							<div class="transfer-logo">
+								<img src="https://assets.codepen.io/285131/apple.svg" />
+							</div>
+							<dl class="transfer-details">
+								<div>
+									Apple Inc.<br>
+									Apple ID Payment
+								</div>
+								<div>
+									4012<br>
+									Last four digits
+								</div>
+								<div>
+									28 Oct. 21<br>
+									Date payment
+								</div>
+							</dl>
+							<div class="transfer-number">
+								+ $ 550
+							</div>
+						</div>
+						<div class="transfer">
+							<div class="transfer-logo">
+								<img src="https://assets.codepen.io/285131/pinterest.svg" />
+							</div>
+							<dl class="transfer-details">
+								<div>
+									Pinterest<br>
+									2 year subscription
+								</div>
+								<div>
+									5214<br>
+									Last four digits
+								</div>
+								<div>
+									26 Oct. 21<br>
+									Date payment
+								</div>
+							</dl>
+							<div class="transfer-number">
+								+ $ 120
+							</div>
+						</div>
+						<div class="transfer">
+							<div class="transfer-logo">
+								<img src="https://assets.codepen.io/285131/warner-bros.svg" />
+							</div>
+							<dl class="transfer-details">
+								<div>
+									Warner Bros.<br>
+									Cinema
+								</div>
+								<div>
+									2228<br>
+									Last four digits
+								</div>
+								<div>
+									22 Oct. 21<br>
+									Date payment
+								</div>
+							</dl>
+							<div class="transfer-number">
+								+ $ 70
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="app-body-sidebar">
+				<section class="payment-section">
+					<h2>Your Journey</h2>
+					<div class="payments">
+						<div class="payment">
+							<div class="card green">
+								4012 NOTIFICATIONS RECIEVED
+							</div>
+						</div>
+						<div class="payment">
+							<div class="card olive">
+								2228 FED TO HUNGRY PEOPLE
+							</div>
+						</div>
+						<div class="payment">
+							<div class="card gray">
+								5214 ORDERS PLACED
+							</div>
+						</div>
+					</div>
+					<div class="faq">
+						<p>Most frequently asked questions</p>
+						<div>
+							<label>Question</label>
+							<input type="text" placeholder="Type here">
+						</div>
+					</div>
+					<div class="payment-section-footer">
+						<button class="save-button">
+							Save
+						</button>
+						<button class="settings-button">
+							<i class="ph-gear"></i>
+							<span>More settings</span>
+						</button>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/phosphor-icons"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>

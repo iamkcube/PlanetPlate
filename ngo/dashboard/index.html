@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NGO Dashboard</title>
+	<link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/null/potted-plant.png" />
+	<link rel="stylesheet" href="../../assets/fonts/stylesheet.css" />
+	<link rel="stylesheet" href="../../css/reset.css" type="text/css" />
+	<link rel="stylesheet" href="../../css/ngo_dashboard.css" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://kit.fontawesome.com/4af0a895d1.js" crossorigin="anonymous" defer></script>
+	<script type="module" src="../../js/ngo_dashboard.js" defer></script>
+
+  <script type="module" crossorigin src="../../assets/modulepreload-polyfill-3cfb730f.js"></script>
+</head>
+
+<body>
+	<div class="sidebar open">
+		<p class="logo"><a href="../../"><span>Re</span>Satiate</a></p>
+		<ul class="nav-list">
+			<li>
+				<a href="#">
+					<i class="bx bx-grid-alt"></i>
+					<span class="links_name">Dashboard</span>
+				</a>
+				<span class="tooltip">Dashboard</span>
+			</li>
+			<li>
+				<a href="#">
+					<i class="bx bx-user"></i>
+					<span class="links_name">Contact us</span>
+				</a>
+				<span class="tooltip">Contact us</span>
+			</li>
+			<!-- <li>
+				<a href="#">
+					<i class="bx bx-chat"></i>
+					<span class="links_name">Messages</span>
+				</a>
+				<span class="tooltip">Messages</span>
+			</li>
+			<li>
+				<a href="#">
+					<i class="bx bx-cog"></i>
+					<span class="links_name">Settings</span>
+				</a>
+				<span class="tooltip">Settings</span>
+			</li> -->
+			<li class="profile" id="logOut">
+				<div class="profile-details">
+					<!--<img src="profile.jpg" alt="profileImg">-->
+					<div class="name_job">
+						<div class="name">For The Poor</div>
+						<div class="job">NGO</div>
+					</div>
+				</div>
+				<i class="bx bx-log-out" id="log_out"></i>
+			</li>
+		</ul>
+	</div>
+
+	<div id="main">
+		<div class="head">
+			<div class="col-div-6">
+				<span style="font-size: 30px; cursor: pointer;" class="nav"><span class="hamburger">&#9776;</span>
+					Dashboard</span>
+
+				<span style="font-size: 30px; cursor: pointer;" class="nav2"><span class="hamburger">&#9776;</span>
+					Dashboard</span>
+			</div>
+
+			<div class="col-div-6">
+				<div class="profile">
+					<img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+						class="pro-img" />
+					<p><span id="Sarans">XYZ ORG</span> <span id="Kalinga">INDUSTRY</span></p>
+				</div>
+				<!-- <div class="bell-notification" current-count="8">
+					<i class="fa-solid fa-bell fa-2xl"></i>
+				</div> -->
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="clearfix"></div>
+		<br />
+
+		<div class="col-div-3">
+			<div class="box">
+				<p class="box-text">900<br /><span>Hungry people fed</span></p>
+				<i class="fa-sharp fa-solid fa-utensils fa-2xl box_icon"></i>
+				<!-- <i class="fa-solid fa-utensils"></i> -->
+				<!-- <i class="fa fa-users box-icon"></i> --->
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box">
+				<p class="box-text">80<br /><span>Hungry Animals fed</span></p>
+				<i class="fa-solid fa-industry fa-2xl box_icon"></i>
+				<!-- <i class="fa fa-list box-icon"></i> -->
+			</div>
+		</div>
+		<div class="col-div-3">
+			<div class="box">
+				<p class="box-text">990<br /><span>Success stories</span></p>
+				<i class="fa-solid fa-oil-well fa-2xl box_icon"></i>
+				<!-- <i class="fa fa-shopping-bag box-icon"></i> -->
+			</div>
+		</div>
+		<!-- <div class="col-div-3">
+		<div class="box">
+			<p>78<br/><span>Tasks</span></p>
+			<i class="fa fa-tasks box-icon"></i>
+		</div>
+	</div> -->
+		<div class="clearfix"></div>
+		<br /><br />
+		<div class="col-div-8">
+			<div class="box-8">
+				<div class="content-box">
+					<p>Last Transactions</p>
+					<br />
+					<table>
+						<tr>
+							<th>Restaurants</th>
+							<th>Food Delivered</th>
+							<!-- <th>Country</th> -->
+						</tr>
+						<tr>
+							<td>Le Shine</td>
+							<td>31 Mar 2023 11:03:51</td>
+							<!-- <td>Germany</td> -->
+						</tr>
+						<tr>
+							<td>SaraChanchal</td>
+							<td>31 Mar 2023 11:01:02</td>
+							<!-- <td>Mexico</td> -->
+						</tr>
+						<tr>
+							<td>Kalibhadra</td>
+							<td>30 Mar 2023 11:03:05</td>
+							<!-- <td>Austria</td> -->
+						</tr>
+						<tr>
+							<td>Sarakali</td>
+							<td>29 Mar 2023 11:05:09</td>
+							<!-- <td>UK</td> -->
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-div-4">
+			<div class="box-4">
+				<div class="content-box">
+					<p>HAPPY FACE COUNT</p>
+
+					<div class="circle-wrap">
+						<div class="circle">
+							<div class="mask full">
+								<div class="fill"></div>
+							</div>
+							<div class="mask half">
+								<div class="fill"></div>
+							</div>
+							<div class="inside-circle">99/100</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+
+</body>
+
+</html>

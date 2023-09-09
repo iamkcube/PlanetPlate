@@ -1,0 +1,404 @@
+html
+{
+  --primary-color: var(--pink-color);
+  --hover-color: hsl(335, 38%, 31%);
+  --primary-green: var(--pink-color) !important;
+  --hover-green: hsl(335, 38%, 31%) !important;
+  overflow-x: hidden;
+  scroll-padding-top: 20rem;
+  scroll-behavior: smooth;
+}
+
+/* landing page starts */
+.restaurant-landing-page
+{
+  background: url("https://i.imgur.com/j1gFlR4.jpeg");
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  background-position: center center;
+  padding-top: 1rem;
+}
+
+.restaurant-landing-page a
+{
+  text-decoration: none;
+  color: rgb(250, 235, 215);
+}
+
+.name-restaurant-website
+{
+  padding: 2.4rem;
+  color: var(--pink-color);
+  padding-left: 5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.logo
+{
+  text-align: left;
+  font-size: 2rem;
+  font-weight: bold;
+  padding-left: 5rem;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  letter-spacing: 0.05em;
+  padding-block: 1em;
+}
+
+.logo span
+{
+  color: var(--primary-color);
+}
+
+.tagline-restaurant-website
+{
+  padding-top: 18rem;
+  padding-left: 5rem;
+  color: rgb(250, 235, 215);
+  font-size: 3rem;
+}
+
+.tagline-restaurant-website span
+{
+  font-weight: 600;
+  color: var(--pink-color);
+}
+
+.restaurant-login-button
+{
+  margin-left: 5rem;
+  margin-top: 3rem;
+  background: none;
+  color: white;
+  padding: 1em 2.5em;
+  border: 2px solid var(--pink-color);
+  border-radius: var(--border-radius-pill);
+  transition: background-color var(--transition-time) var(--transition-curve);
+}
+
+.restaurant-login-button:hover
+{
+  background-color: var(--pink-color);
+}
+
+/* about us section starts */
+.about-us
+{
+  margin: 6em 4em 0 4em;
+  display: flex;
+  gap: 2.5em;
+  justify-content: space-evenly;
+}
+
+.about-us-image,
+.about-us-written
+{
+  /* margin: 1.5rem; */
+  width: 50%;
+}
+
+.about-us-image img
+{
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.about-us-written-heading
+{
+  color: var(--pink-color);
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.about-us-written-para
+{
+  font-size: 1.1rem;
+  text-align: justify;
+  font-weight: 400;
+  opacity: 0.75;
+  color: rgba(0, 0, 0, 0.9)
+}
+
+/* registration section starts */
+.box-form
+{
+  margin: 7.5rem auto;
+  width: 95%;
+  /* height: 40rem; */
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 20px 6px var(--pink-color);
+
+}
+
+@media (max-width: 980px)
+{
+  .box-form
+  {
+    flex-flow: wrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+/* .box-form div {
+    height: auto;
+  } */
+.box-form .left
+{
+  color: #FFFFFF;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://images.unsplash.com/photo-1543353071-10c8ba85a904?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  width: 50%;
+}
+
+.box-form .right
+{
+  width: 70%;
+  padding-bottom: 3rem;
+  padding-right: 4em;
+  overflow: hidden;
+}
+
+@media (max-width: 980px)
+{
+  .box-form .right
+  {
+    width: 100%;
+  }
+}
+
+.box-form .right h5
+{
+  font-size: 3rem;
+  color: var(--pink-color);
+  font-weight: 600;
+  line-height: 0;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  margin-left: 6rem;
+}
+
+.box-form .right .inputs
+{
+  overflow: hidden;
+  margin-left: 3rem;
+}
+
+.box-form .right .inputs .input-1
+{
+  display: flex;
+  width: 100%;
+}
+
+.box-form .right .inputs input
+{
+  margin-left: 2rem;
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--pink-color);
+}
+
+.box-form .right .remember-me--forget-password
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-form .right button
+{
+  color: #fff;
+  font-size: 16px;
+  margin-left: 5rem;
+  padding: 12px 35px;
+  border-radius: 30px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  background-color: var(--pink-color);
+}
+
+.box-form .right button:hover
+{
+  background-color: hsl(335, 38%, 35%);
+}
+
+label
+{
+  display: block;
+  position: relative;
+  margin-left: 5rem;
+  color: hsl(0, 0%, 0%, 0.75);
+}
+
+label>a
+{
+  color: hsl(240, 73%, 58%);
+}
+
+label>a:hover
+{
+  color: hsl(240, 73%, 50%);
+}
+
+.check-box-input
+{
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* faq section starts */
+
+.accordion-container
+{
+  margin-inline-start: 5em;
+  margin-top: -6rem;
+  padding: 4rem;
+  width: 100%;
+}
+
+.accordion-container h2
+{
+  font-size: 3rem;
+  color: var(--pink-color);
+  margin-left: -1rem;
+}
+
+.container-child
+{
+  display: flex;
+}
+
+.faq-container-left
+{
+  width: 60%;
+  margin-left: -1rem;
+}
+
+.accordion .accordion-item
+{
+  border-bottom: 2px solid var(--pink-color);
+}
+
+.accordion button
+{
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: rgb(132, 132, 132);
+  font-size: 1.15rem;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.accordion button:hover,
+.accordion button:focus
+{
+  cursor: pointer;
+  color: var(--pink-color);
+}
+
+.accordion button:hover::after,
+.accordion button:focus::after
+{
+  cursor: pointer;
+  color: var(--pink-color);
+}
+
+.accordion button .accordion-title
+{
+  padding: 1em 1.5em 1em 0;
+}
+
+.accordion button .icon
+{
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+
+.accordion button .icon::before
+{
+  display: block;
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+
+.accordion button .icon::after
+{
+  display: block;
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+
+.accordion button[aria-expanded='true']
+{
+  color: var(--pink-color);
+}
+
+.accordion button[aria-expanded='true'] .icon::after
+{
+  width: 0;
+}
+
+.accordion button[aria-expanded='true']+.accordion-content
+{
+  opacity: 1;
+  max-height: 9em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+
+.accordion .accordion-content
+{
+  opacity: 0;
+  max-height: 0;
+  color: var(--pink-color);
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+
+.accordion .accordion-content p
+{
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: justify;
+  margin-block-end: 2em;
+}
+
+.faq-container-right img
+{
+  margin-top: -9rem;
+  margin-left: 4rem;
+}
