@@ -1,6 +1,6 @@
-# Resatiate
+# PlanetPlate
 
-Welcome to **Resatiate**! We are a food distribution platform that connects restaurants with local NGOs in need of surplus food, while also recycling by-products for use in industries.
+Welcome to **PlanetPlate**! We are a food distribution platform that connects restaurants with local NGOs in need of surplus food, while also recycling by-products for use in industries.
 
 # About Us
 
@@ -24,13 +24,13 @@ Development Goals, including:
 ### Clone this repository
 
 ```console
-git clone https://github.com/iamkcube/Resatiate.git
+git clone https://github.com/iamkcube/PlanetPlate.git
 ```
 
-### Change directory to Resatiate
+### Change directory to PlanetPlate
 
 ```console
-cd Resatiate
+cd PlanetPlate
 ```
 
 ### Install dev dependencies
@@ -44,7 +44,7 @@ npm run dev
 ```
 ### Follow the link given in terminal
 ```console
-> resatiate@0.0.0 dev
+> planetplate@0.0.0 dev
 > vite --host
 
 
@@ -61,4 +61,4 @@ npm run dev
 To visit our already hosted website on github pages,
 visit 
 
-https://iamkcube.github.io/Resatiate/
+https://iamkcube.github.io/PlanetPlate/
