@@ -3,7 +3,9 @@ import {
 	getFirestore,
 	collection,
 	getDocs,
-	addDoc,
+    getDoc,
+	doc,
+    updateDoc,
 	query,
 	where,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
@@ -36,37 +38,67 @@ getDocs(colRef).then((snapshot) => {
 //Get the current logged in user code ---------------------------------------------------
 const auth = getAuth(firebaseApp);
 let email = "test@mail.com";
+let userDataPromise = null;
+let restaurantName = null;
+let restaurantphoneNumber = null;
+let restaurantAddress = null;
 
-onAuthStateChanged(auth, async (user) => {
-	if (user) {
-		// User is signed in, see docs for a list of available properties
-		email = user.email;
-		// to redirect into dashboard if registered
-		const queryEmail = query(colRef, where("email", "==", email));
-		console.log(email);
-		const querySnapshot = await getDocs(queryEmail);
-		if (querySnapshot.empty) {
-			alert("Please Register First.");
-			window.location.href = "../";
-		}
-		querySnapshot.forEach((doc) => {
-			console.log(doc);
-			// doc.data() is never undefined for query doc snapshots
-			console.log(doc.id, " => ", doc.data());
-			const { Name, Restaurantname } = doc.data();
-			console.log(Name);
-			console.log(Restaurantname);
-			changingContent(Name, Restaurantname);
-		});
-	} else {
-		console.log("User not found error");
-		alert("Please Login to Continue");
-		window.location.href = "../../";
-		// User is signed out
-		// window.location.href = "/";
-	}
+// Wrap the onAuthStateChanged listener in a function
+function initializeAuthListener() {
+    return new Promise(async (resolve, reject) => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                try {
+                    email = user.email;
+                    const queryEmail = query(colRef, where("email", "==", email));
+                    const querySnapshot = await getDocs(queryEmail);
+                    if (querySnapshot.empty) {
+                        alert("Please Register First.");
+                        window.location.href = "../";
+                        reject("User not found.");
+                        return;
+                    }
+                    querySnapshot.forEach((doc) => {
+                        const { Name, Restaurantname, phnumber, Address } = doc.data();
+                        const userData = {
+                            name: Name,
+                            restaurantName: Restaurantname,
+                            restaurantphoneNumber: phnumber,
+                            restaurantAddress: Address,
+                        };
+                        restaurantphoneNumber = userData.restaurantphoneNumber;
+                        restaurantAddress = userData.restaurantAddress;
+                        restaurantName = userData.restaurantName;
+                        changingContent(Name, Restaurantname);
+                        resolve(userData); // Resolve the promise with the user data
+                    });
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                    reject(error);
+                }
+            } else {
+                console.log("User not found error");
+                alert("Please Login to Continue");
+                window.location.href = "../../";
+                reject("User not found.");
+            }
+        });
+    });
+}
+
+// Initialize the authentication listener
+userDataPromise = initializeAuthListener();
+
+// Now you can use userDataPromise to access the user data
+userDataPromise.then((userData) => {
+    console.log("userData outside fetchData function:", userData);
+}).catch((error) => {
+    console.error("Error:", error);
 });
 
+console.log(userDataPromise);
+
+//Logout function---------------------------------------------------------
 document.querySelector("#logOut").addEventListener("click", async () => {
 	console.log("logging out!");
 	await signOut(auth)
@@ -133,7 +165,9 @@ async function getNGOData() {
     const querySnapshot = await getDocs(queryNGO);
     const ngoData = [];
     querySnapshot.forEach((doc) => {
-        ngoData.push(doc.data());
+        const ngoItem = doc.data();
+        ngoItem.id = doc.id; // Add the document ID to the object
+        ngoData.push(ngoItem);
     });
     return ngoData;
 }
@@ -141,7 +175,6 @@ async function getNGOData() {
 function displayNGODataInModal(ngoData) {
     const modalContent = document.querySelector("#ngoCards");
     modalContent.innerHTML = ""; // Clear existing content
-
     ngoData.forEach((ngo) => {
         const ngoCard = document.createElement("div");
         ngoCard.className = "cardNGO"; // Renamed to cardNGO
@@ -154,19 +187,58 @@ function displayNGODataInModal(ngoData) {
 
         const sendButton = document.createElement("button");
         sendButton.textContent = "Notify";
-		sendButton.addEventListener("click", () => {
-            alert("The NGO will contact you soon,if available");// Handle the "Send" button click
+        sendButton.dataset.ngoId = ngo.id;
+		sendButton.addEventListener("click", (event) => {
+            const ngoId = event.target.dataset.ngoId;
+            const clickTimestamp = new Date().toISOString();
+            notifyNGO(ngoId,restaurantName,restaurantAddress,restaurantphoneNumber,clickTimestamp);
         });
-
         ngoCard.appendChild(ngoName);
         ngoCard.appendChild(ngoDescription);
         ngoCard.appendChild(sendButton);
-
         modalContent.appendChild(ngoCard);
     });
 }
 
+async function notifyNGO(ngoId, restaurantName, restaurantAddress, restaurantphoneNumber, clickTimestamp) {
+    try {
+        // Fetch the NGO data by ID
+        const ngoRef = doc(colRefNGO, ngoId);
+        const ngoDoc = await getDoc(ngoRef);
 
+        if (ngoDoc.exists()) {
+            const ngoData = ngoDoc.data();
+
+            // Create a new notification object
+            const notification = {
+                restaurantName: restaurantName,
+                restaurantAddress: restaurantAddress,
+                restaurantphoneNumber: restaurantphoneNumber,
+                clickTimestamp: clickTimestamp,
+            };
+            // Initialize the 'notifications' field as an empty array if it doesn't exist
+            if (!ngoData.notifications) {
+                ngoData.notifications = [];
+            }
+            // Add the new notification to the 'notifications' array
+            ngoData.notifications.push(notification);
+            // Update the Firestore document with the new 'notifications' array
+            await updateDoc(ngoRef, { notifications: ngoData.notifications });
+            alert("Notification sent to " + ngoData.NGOname);
+        } else {
+            console.error("NGO not found.");
+        }
+    } catch (error) {
+        console.error("Error notifying NGO:", error);
+    }
+}
+
+
+
+
+
+//Adding content to the oil Modal----------------------------------------------------------------------------
+// Add an event listener to the "oilModalButton" to fetch and display NGO data
 document.querySelector("#oilModalButton").addEventListener("click", async () => {
     try {
         const IndustryData = await getIndustryData();
@@ -177,6 +249,7 @@ document.querySelector("#oilModalButton").addEventListener("click", async () => 
 });
 
 
+// Function to fetch data from the "Industry" collection
 async function getIndustryData() {
     const queryIndustry = query(colRefIndustry); // Assuming colRefNGO points to the "NGO" collection
     const querySnapshot = await getDocs(queryIndustry);
@@ -206,15 +279,15 @@ function displayIndustryDataInModal(ngoData) {
 		sendButton.addEventListener("click", () => {
             alert("The Company will contact you soon,if available");// Handle the "Send" button click
         });
-
         ngoCard.appendChild(ngoName);
         ngoCard.appendChild(ngoDescription);
         ngoCard.appendChild(sendButton);
-
         modalContent.appendChild(ngoCard);
     });
 }
 
+//Adding content to the peel Modal----------------------------------------------------------------------------
+// Add an event listener to the "peelModalButton" to fetch and display NGO data
 document.querySelector("#peelWasteModalButton").addEventListener("click", async () => {
     try {
         const IndustryData1 = await getIndustryData1();
@@ -224,7 +297,7 @@ document.querySelector("#peelWasteModalButton").addEventListener("click", async 
     }
 });
 
-
+// Function to fetch data from the "Industry" collection
 async function getIndustryData1() {
     const queryIndustry = query(colRefIndustry); // Assuming colRefNGO points to the "NGO" collection
     const querySnapshot = await getDocs(queryIndustry);
@@ -254,11 +327,9 @@ function displayIndustryDataInModal1(ngoData) {
 		sendButton.addEventListener("click", () => {
             alert("The Company will contact you soon,if available");// Handle the "Send" button click
         });
-
         ngoCard.appendChild(ngoName);
         ngoCard.appendChild(ngoDescription);
         ngoCard.appendChild(sendButton);
-
         modalContent.appendChild(ngoCard);
     });
 }
