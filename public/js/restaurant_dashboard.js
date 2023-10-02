@@ -133,9 +133,6 @@ document.addEventListener('click', function (event) {
             case 'oilModalButton':
                 modalId = 'oilModal';
                 break;
-            case 'peelWasteModalButton':
-                modalId = 'peelWasteModal';
-                break;
             default:
                 return; // Exit if the button doesn't have a corresponding modal
         }
@@ -200,6 +197,7 @@ function displayNGODataInModal(ngoData) {
     });
 }
 
+//Function to notigy ngo
 async function notifyNGO(ngoId, restaurantName, restaurantAddress, restaurantphoneNumber, clickTimestamp) {
     try {
         // Fetch the NGO data by ID
@@ -255,10 +253,47 @@ async function getIndustryData() {
     const querySnapshot = await getDocs(queryIndustry);
     const IndustryData = [];
     querySnapshot.forEach((doc) => {
-        IndustryData.push(doc.data());
+        const IndustryItem = doc.data();
+        IndustryItem.id = doc.id; // Add the document ID to the object
+        IndustryData.push(IndustryItem);
     });
     return IndustryData;
 }
+
+//Function to send notification to industry
+async function notifyIndustry(IndustryId, restaurantName, restaurantAddress, restaurantphoneNumber, clickTimestamp) {
+    try {
+        // Fetch the NGO data by ID
+        const IndustryRef = doc(colRefIndustry, IndustryId);
+        const IndustryDoc = await getDoc(IndustryRef);
+        if (IndustryDoc.exists()) {
+            const IndustryData = IndustryDoc.data();
+            console.log("working")
+            // Create a new notification object
+            const notification = {
+                restaurantName: restaurantName,
+                restaurantAddress: restaurantAddress,
+                restaurantphoneNumber: restaurantphoneNumber,
+                clickTimestamp: clickTimestamp,
+            };
+            // Initialize the 'notifications' field as an empty array if it doesn't exist
+            if (!IndustryData.notifications) {
+                IndustryData.notifications = [];
+            }
+            // Add the new notification to the 'notifications' array
+            IndustryData.notifications.push(notification);
+            // Update the Firestore document with the new 'notifications' array
+            await updateDoc(IndustryRef, { notifications: IndustryData.notifications });
+            alert("Notification sent to " + IndustryData.Industryname);
+        } else {
+            console.error("Industry not found.");
+        }
+    } catch (error) {
+        console.error("Error notifying Industry:", error);
+    }
+}
+
+
 
 function displayIndustryDataInModal(ngoData) {
     const modalContent = document.querySelector("#IndustryCards");
@@ -276,8 +311,11 @@ function displayIndustryDataInModal(ngoData) {
 
         const sendButton = document.createElement("button");
         sendButton.textContent = "Notify";
-		sendButton.addEventListener("click", () => {
-            alert("The Company will contact you soon,if available");// Handle the "Send" button click
+        sendButton.dataset.ngoId = Industry.id;
+		sendButton.addEventListener("click", (event) => {
+            const IndustryId = event.target.dataset.ngoId;
+            const clickTimestamp = new Date().toISOString();
+            notifyIndustry(IndustryId,restaurantName,restaurantAddress,restaurantphoneNumber,clickTimestamp);
         });
         ngoCard.appendChild(ngoName);
         ngoCard.appendChild(ngoDescription);
@@ -286,51 +324,6 @@ function displayIndustryDataInModal(ngoData) {
     });
 }
 
-//Adding content to the peel Modal----------------------------------------------------------------------------
-// Add an event listener to the "peelModalButton" to fetch and display NGO data
-document.querySelector("#peelWasteModalButton").addEventListener("click", async () => {
-    try {
-        const IndustryData1 = await getIndustryData1();
-        displayIndustryDataInModal1(IndustryData1);
-    } catch (error) {
-        console.error("Error fetching Industry data:", error);
-    }
-});
 
-// Function to fetch data from the "Industry" collection
-async function getIndustryData1() {
-    const queryIndustry = query(colRefIndustry); // Assuming colRefNGO points to the "NGO" collection
-    const querySnapshot = await getDocs(queryIndustry);
-    const IndustryData1 = [];
-    querySnapshot.forEach((doc) => {
-        IndustryData1.push(doc.data());
-    });
-    return IndustryData1;
-}
 
-function displayIndustryDataInModal1(ngoData) {
-    const modalContent = document.querySelector("#IndustryCards1");
-    modalContent.innerHTML = ""; // Clear existing content
-
-    ngoData.forEach((Industry) => {
-        const ngoCard = document.createElement("div");
-        ngoCard.className = "cardNGO"; // Renamed to cardNGO
-
-        const ngoName = document.createElement("h4");
-        ngoName.textContent = Industry.Industryname; // Replace with your data field name
-
-        const ngoDescription = document.createElement("p");
-        ngoDescription.textContent = Industry.Address; // Replace with your data field name
-
-        const sendButton = document.createElement("button");
-        sendButton.textContent = "Notify";
-		sendButton.addEventListener("click", () => {
-            alert("The Company will contact you soon,if available");// Handle the "Send" button click
-        });
-        ngoCard.appendChild(ngoName);
-        ngoCard.appendChild(ngoDescription);
-        ngoCard.appendChild(sendButton);
-        modalContent.appendChild(ngoCard);
-    });
-}
 
